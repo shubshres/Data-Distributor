@@ -18,17 +18,13 @@ public class StudentConfig {
                     1L,
                     "Shubhayu Shrestha",
                     "shubshresdev@gmail.com",
-                    23,
                     LocalDate.of(2000, Month.DECEMBER, 29)
-
             );
 
             Student rohan = new Student(
                     "Rohan Shrestha",
                     "rohanshrestha@gmail.com",
-                    23,
                     LocalDate.of(2005, Month.JANUARY, 21)
-
             );
 
             repository.saveAll(List.of(shubhayu, rohan));
