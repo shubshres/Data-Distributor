@@ -1,5 +1,6 @@
 package com.example.datadistributor.student;
 
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -7,6 +8,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 // Service Layer responsible for business logic
 //@Component // need this to be a class that has to be instantiated / bean
@@ -42,6 +45,26 @@ public class StudentService {
         }
         else {
             studentRepository.deleteById(studentId);
+        }
+    }
+
+    @Transactional // do not need to put jpql queries, just use getters and setters we have
+    public void updateStudent(Long studentId, String name, String email) {
+        Student student = studentRepository.findById(studentId).orElseThrow(() -> new
+                IllegalStateException("Student with id " + studentId + " does not exist"));
+
+        if(name != null && name.length() > 0 && !Objects.equals(student.getName(), name)){
+            student.setName(name);
+        }
+
+        if(email != null && email.length() > 0 && !Objects.equals(student.getEmail(), email)){
+            Optional<Student> studentEmail = studentRepository.findStudentByEmail(email);
+            if(!studentEmail.isPresent()) {
+                student.setEmail(email);
+            }
+            else {
+                throw new IllegalStateException("Email already in use");
+            }
         }
     }
 }
