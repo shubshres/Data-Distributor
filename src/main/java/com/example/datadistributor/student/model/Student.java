@@ -1,4 +1,4 @@
-package com.example.datadistributor.student;
+package com.example.datadistributor.student.model;
 
 import jakarta.persistence.*;
 

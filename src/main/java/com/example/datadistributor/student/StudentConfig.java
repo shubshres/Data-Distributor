@@ -1,5 +1,6 @@
 package com.example.datadistributor.student;
 
+import com.example.datadistributor.student.model.Student;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

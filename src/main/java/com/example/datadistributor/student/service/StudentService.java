@@ -1,12 +1,12 @@
-package com.example.datadistributor.student;
+package com.example.datadistributor.student.service;
 
+import com.example.datadistributor.student.model.Student;
+import com.example.datadistributor.student.StudentRepository;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;

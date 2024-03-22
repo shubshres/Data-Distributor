@@ -1,5 +1,7 @@
-package com.example.datadistributor.student;
+package com.example.datadistributor.student.controller;
 
+import com.example.datadistributor.student.model.Student;
+import com.example.datadistributor.student.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
